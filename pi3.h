@@ -1,5 +1,15 @@
 
-void InserirFuncionario();
+typedef struct TipoFuncionario{
+	char Nome[100];
+	float Descontos;
+	char Telefone[15];
+	char Endereco[200];
+	char Bairro[30];
+	char Cidade[30];
+	char UF[3];
+} TipoFuncionario;
+
+void InserirFuncionario(TipoFuncionario Funcionario);
 
 void CadastrarCartaoPonto();
 
