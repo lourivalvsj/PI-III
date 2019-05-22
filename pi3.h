@@ -1,15 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
 void InserirFuncionario();
 
 void CadastrarCartaoPonto();
