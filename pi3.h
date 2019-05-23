@@ -1,4 +1,3 @@
-
 typedef struct TipoFuncionario{
 	char Nome[100];
 	float Descontos;
@@ -9,7 +8,9 @@ typedef struct TipoFuncionario{
 	char UF[3];
 } TipoFuncionario;
 
-void InserirFuncionario(TipoFuncionario Funcionario);
+int ConectaDB();
+
+void InserirFuncionario();
 
 void CadastrarCartaoPonto();
 
