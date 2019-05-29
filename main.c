@@ -7,7 +7,9 @@ int main(int argc, char const *argv[]){
 	//Início do desenvolvimento do projeto!!!
 	if(ConectaDB()){
 		// Se estabelecer conexão segue aqui!!!
-	
+	--int x;
+	--printf(" Qual e o seu nome\n");
+	--scanf ("%i",&x);
 
 
 
