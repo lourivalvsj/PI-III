@@ -64,14 +64,14 @@ hrsentrada1 time not null,
 hrssaida1 time not null,
 hrsentrada2 time not null,
 hrssaida2 time not null,
-hrs100 time not null,
-hrs50 time not null,
-adcnoturno time not null,
+hrs100 time null,
+hrs50 time null,
+adcnoturno time null,
 id_tab_periodo integer not null,
 id_tab_funcionario integer not null,
 constraint fk_controlehoras_periodo foreign key (id_tab_periodo) references periodo(id),
 constraint fk_controlehoras_funcionario foreign key (id_tab_funcionario) references funcionario(id),
-primary key (id_tab_periodo, id_tab_funcionario));
+primary key (data1,id_tab_periodo, id_tab_funcionario));
 
 CREATE TABLE gasto(
 datagasto date not null,
@@ -88,14 +88,23 @@ id_tab_cargo integer not null,
 adicional numeric (6.2),
 constraint fk_ocupa_funcionario foreign key (id_tab_funcionario) references funcionario(id),
 constraint fk_ocupa_cargo foreign key (id_tab_cargo) references cargo(id),
-primary key (datagasto,id_tab_funcionario,datainicial));
+primary key (datainicial,id_tab_funcionario,id_tab_cargo));
 
+
+select * from usuario;
 select * from empresa;
 select * from departamento;
 select * from centrocusto;
 select * from periodo;
 select * from funcionario;
 select * from controlehoras;
+select * from cargo;
+select * from ocupa;
+select * from controlehoras;
+
+INSERT INTO usuario VALUES (01,'LOURIVAL VICENTE DA SILVA JUNIOR','LOURIVAL','123456789',1);
+INSERT INTO usuario VALUES (02,'ROMILDO ALVES DE SOUZA JUNIOR','ROMILDO','123456789',2);
+INSERT INTO usuario VALUES (03,'MAIDSON MATEUS SILVA SOUZA','MAIDSON','123456789',3);
 
 INSERT INTO empresa VALUES (01,'111111111','VIA RADIO', 'STATUS EQUIPAMENTO DE TELECOM LTDA',11112222);
 INSERT INTO empresa VALUES (02,'222222222','BRASILAGRO', 'COMPANHIA DE SERVICO E RURAL LTDA',22223333);
@@ -121,10 +130,6 @@ INSERT INTO centrocusto VALUES (06,'555-ADUBO',02);
 INSERT INTO centrocusto VALUES (07,'666-DOENÇA',01);
 INSERT INTO centrocusto VALUES (08,'777-FINANCEIRO',01);
 
-INSERT INTO usuario VALUES (01,'LOURIVAL VICENTE DA SILVA JUNIOR','LOURIVAL','123456789',1,1);
-INSERT INTO usuario VALUES (02,'ROMILDO ALVES DE SOUZA JUNIOR','ROMILDO','123456789',2,2);
-INSERT INTO usuario VALUES (03,'MAIDSON MATEUS SILVA SOUZA','MAIDSON','123456789',3,3);
-
 INSERT INTO periodo VALUES (01,'F',20190506,20190531);
 INSERT INTO periodo VALUES (02,'N',20190606,20190606);
 INSERT INTO periodo VALUES (03,'N',20190706,20190731);
@@ -133,9 +138,25 @@ INSERT INTO funcionario VALUES (01,'LOURIVAL JUNIOR',36368239,'RUA ANGICO 88','F
 INSERT INTO funcionario VALUES (02,'ROMILDO JUNIOR',36361400,'RUA MINAS 101','FATIMA','JATAI','GO',02);
 INSERT INTO funcionario VALUES (03,'MAISDON MATEUS',36361300,'RUA ROTA 123','ANTENA','JATAI','GO',03);
 
+INSERT INTO cargo VALUES (01,'ELETRICISTA',2300.00);
+INSERT INTO cargo VALUES (02,'ANALISTA RH',2000.00);
+INSERT INTO cargo VALUES (03,'SERVICOGERAIS',2100.00);
 
+INSERT INTO ocupa VALUES (20190101,20190130,01,01,500.00);
+INSERT INTO ocupa VALUES (20190101,20190130,02,02,500.00);
+INSERT INTO ocupa VALUES (20190101,20190130,03,03,600.00);
 
+INSERT INTO controlehoras VALUES (20190101,'1',080000,110000,123000,173000,null,null,null,01,01);
+INSERT INTO controlehoras VALUES (20190102,'1',080000,110000,123000,173000,null,null,null,01,01);
+INSERT INTO controlehoras VALUES (20190103,'1',080000,110000,123000,173000,null,null,null,01,01);
+INSERT INTO controlehoras VALUES (20190104,'1',080000,110000,123000,173000,null,null,null,01,01);
 
+INSERT INTO controlehoras VALUES (20190101,'1',080000,110000,123000,173000,null,null,null,01,02);
+INSERT INTO controlehoras VALUES (20190102,'1',080000,110000,123000,173000,null,null,null,01,02);
+INSERT INTO controlehoras VALUES (20190103,'1',080000,110000,123000,173000,null,null,null,01,02);
+INSERT INTO controlehoras VALUES (20190104,'1',080000,110000,123000,173000,null,null,null,01,02);
 
-
-
+INSERT INTO controlehoras VALUES (20190101,'1',080000,110000,123000,173000,null,null,null,01,03);
+INSERT INTO controlehoras VALUES (20190102,'1',080000,110000,123000,173000,null,null,null,01,03);
+INSERT INTO controlehoras VALUES (20190103,'1',080000,110000,123000,173000,null,null,null,01,03);
+INSERT INTO controlehoras VALUES (20190104,'1',080000,110000,123000,173000,null,null,null,01,03);
