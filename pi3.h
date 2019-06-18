@@ -1,3 +1,11 @@
+struct USUARIO {
+		int id; 
+		char nome[50];
+		char login [20];
+		char senha [15];
+		int nivel;
+};
+
 typedef struct TipoFuncionario{
 	char Nome[100];
 	float Descontos;
@@ -8,18 +16,26 @@ typedef struct TipoFuncionario{
 	char UF[3];
 } TipoFuncionario;
 
-int ConectaDB();
+void  CABECALHO (); //cabecalho
 
-void InserirFuncionario();
+int COD_CABECALHO (); //cabecalho
 
-void CadastrarCartaoPonto();
+void CADASTRA_SENHA(); //usuario
 
-void GerarEspelho();
+void MOSTRA_SENHA_CADASTRADA (); //usuario
 
-void GerarHolerite();
+int ConectaDB ();
 
-void ExibirFuncionario();
+void InserirFuncionario ();
 
-void ExibirEspelho();
+void CadastrarCartaoPonto ();
 
-void ExibirHolerite();
+void GerarEspelho ();
+
+//void GerarHolerite();
+
+void ExibirFuncionario ();
+
+void ExibirEspelho ();
+
+//void ExibirHolerite();
