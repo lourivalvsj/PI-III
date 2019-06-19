@@ -1,3 +1,5 @@
+
+
 struct USUARIO {
 		int id; 
 		char nome[50];
@@ -16,13 +18,15 @@ typedef struct TipoFuncionario{
 	char UF[3];
 } TipoFuncionario;
 
-void  CABECALHO (); //cabecalho
+int  CABECALHO_1(); //cabecalho
 
-int COD_CABECALHO (); //cabecalho
+int  CABECALHO_2(); //cabecalho
 
 void CADASTRA_SENHA(); //usuario
 
 void MOSTRA_SENHA_CADASTRADA (); //usuario
+
+int eh_Qual_Nivel();
 
 int ConectaDB ();
 

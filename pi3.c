@@ -1,6 +1,11 @@
+#include <ctype.h>
 #include <stdio.h>
-#include <stdlib.h>
+#include <locale.h>
+#include <stdio_ext.h>
 #include <mysql/mysql.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
 # define tam 1
 
 #include "pi3.h"
@@ -20,9 +25,34 @@ int ConectaDB(){
 }
 
 
-void CABECALHO(int acesso){
+int CABECALHO_1(){
+		setlocale(LC_ALL,"");
+		int Op;
+		system("clear");
+		printf("\t     ******  ######  ######     ##   ########   ####### \n");
+		printf("\t     ******  ######  ######     ##   ##        ##      #\n");
+		printf("\t     ######  #######            ##   ##       ##        \n");
+		printf("\t     ######  ######             ##   ######   ##        \n");
+		printf("\t     ######  ######  ######     ##   ##       ##        \n");
+		printf("\t     ######  ######  ######     ##   ##       ##    ####\n");
+		printf("\t     ######  ######             ##   ##        ##     ##\n");
+		printf("\t     ######  ######             ##   ##         #######\n");
+
+
+		printf("\n\n\t   Seja bem vindo ao DESAFIO DO TERCEIRAO.  SISTEMA ESPELHO PONTO \nAo aceitar  participar voce vera o sistema desenvolvido pelos alunos como\ndesafio para o Terceiro Período de TADS!");
+		printf("\n\n\n\t(1)-Aceito\t   Ou precione qualquer tecla para sair...");
+		printf("\n\nOpção ==> ");
+		__fpurge(stdin);
+   		 scanf("%i", &Op);
 	
-		//int opcao=0;
+		if(Op==1){
+		return Op;
+		}
+		return 0;
+}
+
+int CABECALHO_2(int Op){
+	    
 		system("clear");
 		printf(" xxxxxxxxxxxxxxxxxxxxxxxxxxxx                    xxxxxxxxxxxxxxxxxxxxxxxxxxxx\n" );
 		printf(" xxxxxxxxxxxxxxxxxxxxxxxxxxxx                    xxxxxxxxxxxxxxxxxxxxxxxxxxxx\n" );
@@ -39,18 +69,26 @@ void CABECALHO(int acesso){
 		printf(" xxxxxxxxxxxxxxxxxxxxxxxxxxxx                    xxxxxxxxxxxxxxxxxxxxxxxxxxxx\n" );
 		printf(" xxxxxxxxxxxxxxxxxxxxxxxxxxxx                    xxxxxxxxxxxxxxxxxxxxxxxxxxxx\n" );
 		printf(" xxxxxxxxxxxxxxxxxxxxxxxxxxxx                    xxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\n\n\n" );
+		
+		printf("              Digite as opção abaixo para prosseguir no sistema\n");
+		printf("            (1) - acessar o menu  (2) - Cadastra senha  (3) - Sair \n" );
+		scanf("%i", &Op);
+
+		if(Op==1){
+			return Op;
+		}
+		else 
+		if(Op==2){
+			return Op;
+		}
+			return 3;
 }
 
-int COD_CABECALHO(int ACESSO){
-		printf("              Digite as opção abaixo para prosceguir no sistema\n");
-		printf("            (1) - acessar o menu  (2) - Cadastra senha  (3) - Sair \n" );
-		scanf("%i",& ACESSO);
-		return ACESSO;
-}
 
 void CADASTRA_SENHA(struct USUARIO X[]){
 	int i;
 		system("clear");
+
 		for(i=0; i<tam;i++){
 	        fflush(stdin);
 	        setbuf(stdin,NULL);//LIMPA O BUFFER
@@ -72,7 +110,6 @@ void CADASTRA_SENHA(struct USUARIO X[]){
 		}
 
 }
-
 	
 // Escrita
 
@@ -83,7 +120,7 @@ void MOSTRA_SENHA_CADASTRADA (struct USUARIO X[]){
 			printf("NOME COMPLETO CADASTRADO: %s\n",X[i].nome);
 			printf ("LOGIN CADASTRADO: %s\n",X[i].login);
 			printf ("SENHA CADASTRADA: %s\n", X[i].senha);
-			printf ("NIVEL CADASTRADO: %i\n", X[i].nivel);		
+			printf ("NIVEL CADASTRADO: %i\n", X[i].nivel);	
 		}
 }
 
